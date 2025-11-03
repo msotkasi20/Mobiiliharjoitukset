@@ -3,7 +3,7 @@
 Tässä repositoriossa on kurssin aikana olleet palautettavat viikkotehtävät, että myöskin luennoilla tehdyt harjoitustehtävät.
 
 ## Viikkotehtävät
-Tavoitesyke
+Tavoitesyke (vkotehtävä nro 1)
 
 ## Harjoitustehtävät
 Valuuttalaskuri
