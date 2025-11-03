@@ -8,4 +8,5 @@ Tavoitesyke (vkotehtävä nro 1)
 
 ## Harjoitustehtävät
 Valuuttalaskuri  
-StatusBar
+StatusBar  
+Switch
