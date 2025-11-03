@@ -6,5 +6,5 @@ Tässä repositoriossa on kurssin aikana olleet palautettavat viikkotehtävät, 
 Tavoitesyke (vkotehtävä nro 1)
 
 ## Harjoitustehtävät
-Valuuttalaskuri
+Valuuttalaskuri  
 StatusBar
