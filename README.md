@@ -3,9 +3,10 @@
 Tässä repositoriossa on kurssin aikana olleet palautettavat viikkotehtävät, sekä luennoilla tehdyt harjoitustehtävät.
 
 ## Viikkotehtävät
-Tavoitesyke (vkotehtävä nro 1)  
+Tavoitesyke (vkot 1)  
 
 
 ## Harjoitustehtävät
 Valuuttalaskuri  
-StatusBar
+StatusBar  
+Switch (kytkin)
