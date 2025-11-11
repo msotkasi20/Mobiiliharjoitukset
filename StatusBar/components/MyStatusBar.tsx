@@ -3,12 +3,12 @@ import Constants from 'expo-constants'
 import React from 'react'
 
 type MyStatusBarProps = {
-    backgroundColor: string
+  backgroundColor: string
 } & StatusBarProps
 
 export default function MyStatusBar(props: MyStatusBarProps) {
-    const { backgroundColor,...statusBarProps } = props
-  const statusBarHeight = Constants.statusBarHeight || StatusBar.currentHeight || 44
+  const { backgroundColor,...statusBarProps } = props 
+  const statusBarHeight = Constants.statusBarHeight || StatusBar.currentHeight || 44 //Androidissa vain toimii statusBarHeight,joten muut määrittelyt täytyy olla iOSia varten
   return (
       <View style={[styles.statusbar,{backgroundColor, height: statusBarHeight}]}>
         <StatusBar {...statusBarProps} />
@@ -19,7 +19,6 @@ export default function MyStatusBar(props: MyStatusBarProps) {
 const styles = StyleSheet.create({
   statusbar: {
     backgroundColor: 'red',
-    width: '100%',
-
+    width: '100%'
   }
 });
