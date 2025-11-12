@@ -11,8 +11,8 @@ Modal (vkot 2)
 Valuuttalaskuri  
 StatusBar  
 Switch (kytkin)
-Picker
-Fontti
-Datetimepicker
-Alert
+Picker  
+Fontti  
+Datetimepicker  
+Alert  
 Activityindicator  
