@@ -10,9 +10,9 @@ Modal (vkot 2)
 ## Harjoitustehtävät
 Valuuttalaskuri  
 StatusBar  
-Switch (kytkin)
-Picker
-Fontti
-Datetimepicker
-Alert
-Activityindicator
+Switch (kytkin)  
+Picker  
+Fontti  
+Datetimepicker  
+Alert  
+Activityindicator  
