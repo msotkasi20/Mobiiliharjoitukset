@@ -14,14 +14,18 @@ export default function App() {
       </Pressable>
       <Modal
         visible={modalVisible}
+        transparent={true}
+        animationType='fade'
         onRequestClose={() => setModalVisible(false)}
       >
-        <View style={styles.modal}>
-          <Text style={styles.modalText}>This is modal</Text>
-          <Pressable 
-            onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.modalText}>Close</Text>
-          </Pressable>
+        <View style={styles.modalBack}>
+          <View style={styles.modalFront}>
+            <Text style={styles.modalText}>This is modal</Text>
+            <Pressable 
+              onPress={() => setModalVisible(!modalVisible)}>
+                <Text style={styles.modalText}>Close</Text>
+            </Pressable>
+          </View>
         </View>
       </Modal>
       <StatusBar style="auto" />
@@ -43,10 +47,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  modal: {
+  modalBack: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  modalFront: {
+    backgroundColor: '#fff',
+    width: '95%',
+    maxHeight: '30%',
+    shadowColor: '#000',
+    shadowRadius: 12,
+    elevation: 6,
   },
   modalText: {
     fontWeight: 'bold',
