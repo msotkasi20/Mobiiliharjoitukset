@@ -3,8 +3,8 @@
 Tässä repositoriossa on kurssin aikana olleet palautettavat viikkotehtävät, sekä luennoilla tehdyt harjoitustehtävät.
 
 ## Viikkotehtävät
-Tavoitesyke (vkot 1)  
-Modal (vkot 2)
+1. Tavoitesyke  
+2. Modal
 
 
 ## Harjoitustehtävät
@@ -16,3 +16,4 @@ Fontti
 Datetimepicker  
 Alert  
 Activityindicator  
+Navigointi
