@@ -16,4 +16,8 @@ Fontti
 Datetimepicker  
 Alert  
 Activityindicator  
-Navigointi
+Navigointi  
+Loginwithmaterialdesign  
+Screenorientation  
+Styles  
+Theming  
