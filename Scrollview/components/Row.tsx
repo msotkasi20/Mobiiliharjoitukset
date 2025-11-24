@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
         elevation: 2,
         padding: 16,
         marginBottom: 12,
+        width: '100%'
     },
     image: {
         backgroundColor: '#ccc',
