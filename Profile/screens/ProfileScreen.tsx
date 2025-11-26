@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, ToastAndroid, Platform } from 'react-native'
 import { TextInput, Button } from 'react-native-paper'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { useProfile } from '../hooks/useProfile'
 
 
