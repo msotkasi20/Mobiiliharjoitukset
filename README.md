@@ -22,3 +22,6 @@ Loginwithmaterialdesign
 Screenorientation  
 Styles  
 Theming  
+ScrollView  
+Stopwatch  
+SQLite  
