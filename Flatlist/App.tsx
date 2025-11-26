@@ -1,15 +1,35 @@
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { SwipeListView } from 'react-native-swipe-list-view'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 interface Item {
   id: string
   name: string
 }
 
+const STORAGE_KEY = 'SHOPPING_LIST_ITEMS' //luodaan muuttuja asyncstoragen datalle
+
 export default function App () {
   const [items, setItems] = useState<Item[]>([])
   const [input, setInput] = useState('')
+  const [search, setSearch] = useState('')
+
+  //Ladataan tiedot (itemit) AsyncStoragesta kun useEffect ajetaan
+  useEffect(() => {
+    (async () => {
+      try {
+        const json = await AsyncStorage.getItem(STORAGE_KEY)
+        if (json) setItems(JSON.parse(json))
+      } catch (e) {
+        console.log("AsyncStorage problem")
+      }
+    })() //kutsutaan nimetöntä funktiota pelkillä suluilla
+  }, [])
+
+  useEffect(() => {
+    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(items))
+  }, [items])
 
   const addItem = () => {
     if (input.trim()) {
@@ -20,10 +40,21 @@ export default function App () {
     }
   }
 
+  const filteredItems = search.trim()
+    ? items.filter(item =>
+      item.name.toLowerCase().includes(search.trim().toLowerCase()))
+    : items
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Shopping List</Text>
       <View style={styles.inputRow}>
+        <TextInput
+          style={styles.input}
+          value={search}
+          onChangeText={setSearch}
+          placeholder="Search items"
+        />
         <TextInput
           style={styles.input}
           value={input}
@@ -34,17 +65,26 @@ export default function App () {
       </View>
     
       <SwipeListView
-        data={items}
+        data={filteredItems}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <View style={styles.rowFront}>
             <Text>{item.name}</Text>
           </View>
         )}
-        renderHiddenItem={() => <View style={styles.rowBack} />}
-        rightOpenValue={-75}
+        renderHiddenItem={({ item }) => (
+          <View style={styles.rowBack} >
+            <Button
+              title="Delete"
+              color="#d11a2a"
+              onPress={() => {
+                setItems(prev => prev.filter(i => i.id !== item.id))
+              }}
+            />
+          </View>
+        )}
+        rightOpenValue={-90}
         disableRightSwipe
-      
       />
     </View>
   )
