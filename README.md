@@ -5,23 +5,26 @@ Tässä repositoriossa on kurssin aikana olleet palautettavat viikkotehtävät, 
 ## Viikkotehtävät
 1. Tavoitesyke  
 2. Modal
-3. Mdnavigation  
+3. Mdnavigation
+4. Todo  
 
 
 ## Harjoitustehtävät
-Valuuttalaskuri  
-StatusBar  
-Switch (kytkin)  
-Picker  
-Fontti  
-Datetimepicker  
-Alert  
 Activityindicator  
+Alert  
+Datetimepicker  
+Flatlist  
+Fontti  
+Loginwithmaterialdesign    
 Navigointi  
-Loginwithmaterialdesign  
+Picker  
+Profile (2 pages, Home and Profile)  
 Screenorientation  
-Styles  
-Theming  
-ScrollView  
-Stopwatch  
+Scrollview  
 SQLite  
+StatusBar  
+Stopwatch  
+Styles  
+Switch    
+Theming  
+Valuuttalaskuri  
