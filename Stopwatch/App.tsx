@@ -1,62 +1,30 @@
+//Sekuntikellon käyttöliittymä
+
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View, Button } from 'react-native'
-import { useReducer, useRef } from 'react'
-
-type StopwatchState = {  //objektin tietotyyppi, mitä kenttieä sisältää
-  time: number
-  isRunning: boolean
-}
-
-type StopwatchAction = 
-| {type: 'START'}
-| {type: 'STOP'}
-| {type: 'RESET'}
-| {type: 'TICK'}
-
-const intialState: StopwatchState = {
-  time: 0,
-  isRunning: false
-}
-
-const stopwatchReducer = (state: StopwatchState, action: StopwatchAction):
-  StopwatchState => {
-    switch(action.type) {
-      case 'START':
-        return { ...state, isRunning: true}
-      case 'STOP': 
-        return { ...state,isRunning:false}
-      case 'RESET':
-        return { time: 0, isRunning: false}
-      case 'TICK':
-        return { ...state, time: state.time + 1}
-      return state
-    }
-  }
+import { useStopwatch } from './hooks/useStopwatch'
+import StopwatchButton from './components/StopwatchButton'
 
 export default function App() {
-  const [state, dispatch] = useReducer(stopwatchReducer, intialState)
+
+  const { state, handleStart, handleStop, handleReset } =useStopwatch() //tuodaan custom-hookista tarvittava
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Stopwatch</Text>
-      <Text></Text>
+      <Text style={styles.time}>{state.time}</Text>
       <View style= {styles.buttons}>
-        <Button
-          title="Start"
-        />
-        <Button
-          title="Stop"
-        />
-        <Button
-          title="Reset"
-        />
+        <StopwatchButton title="Start" onPress={handleStart} disabled={state.isRunning} />
+        <StopwatchButton title="Stop" onPress={handleStop} disabled={!state.isRunning} />
+        <StopwatchButton title="Reset" onPress={handleReset} />
       </View>
+      <Text style={styles.status}>{state.isRunning ? 'Running' : 'Stopped'}</Text>
       <StatusBar style="auto" />
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ 
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -64,11 +32,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: 32
+    fontSize: 32,
+    marginBottom: 24
+  },
+  time: {
+    fontSize: 24,
+    marginBottom: 24,
+  },
+  status: {
+    fontSize: 24,
+    marginTop: 24,
   },
   buttons: {
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-evenly'
-  } 
-});
+  }
+})
