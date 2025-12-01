@@ -1,81 +1,47 @@
-import { View, StyleSheet, FlatList, TextInput, Button, Text } from 'react-native'
-import React, { useState, useEffect } from 'react'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import { View, StyleSheet, FlatList, TextInput } from 'react-native'
+import { Button } from 'react-native-paper'
+import React, { useState } from 'react'
 import MainAppbar from '../components/ApplicationBar'
 import Row from '../components/Row'
-import type { Task } from '../types/Types'
+import { useTasks } from '../hooks/useTasks'
 
-const STORAGE_KEY = 'TODO_LIST_ITEMS'
+const HomeScreen = () => {
 
-const HomeScreen: React.FC = () => {
-  const [tasks, setTasks] = useState<Task[]>([])
-  const [input, setInput] = useState('')
-
-  useEffect(() => {
-    const loadTasks = async () => {
-      try {
-        const json = await AsyncStorage.getItem(STORAGE_KEY)
-        if (json) {
-          const saved: Task[] = JSON.parse(json)
-          setTasks(saved)
-        }
-      } catch (e) {
-        console.warn('Failed to load Todos')
-      }
-    }
-    loadTasks()
-  }, [])
-
-  useEffect(() => {
-    const saveTasks = async () => {
-      try {
-        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(tasks))
-      } catch (e) {
-        console.warn('Failed to save tasks', e)
-      }
-    }
-    saveTasks()
-  }, [tasks])
-
-  const addItem = () => {
-    const trimmed = input.trim()
-    if (trimmed) {
-      setTasks(prev => [
-        ...prev,
-        { id: Date.now().toString(), name: trimmed, done: false },
-      ])
-      setInput('')
-    }
-  }
-
-  const handleToggleTask = (id: string) => {
-    setTasks(prev =>
-      prev.map(task =>
-        task.id === id ? { ...task, done: !task.done } : task
-      )
-    )
-  }
+  const { state, input, setInput, addTask, toggleTask } = useTasks()
 
   return (
     <View style={styles.container}>
       <MainAppbar />
 
       <View style={styles.inputRow}>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter task"
-          placeholderTextColor="#ccc"
-          value={input}
-          onChangeText={setInput}
-        />
-        <Button title="Save" onPress={addItem} />
+        <View style={styles.inputWrapper}>
+          <TextInput
+            style={styles.input}
+            placeholder="Add a new task"
+            placeholderTextColor="#ccc"
+            value={input}
+            onChangeText={setInput}
+          />
+        </View>
+        <Button 
+          style={styles.button}
+          labelStyle={styles.buttonLabel}
+          onPress={addTask} 
+        > Add 
+        </Button>
       </View>
 
       <FlatList
-        data={tasks}
+        data={state}
         keyExtractor={item => item.id}
-        renderItem={({ item }) => (
-          <Row task={item} onToggle={handleToggleTask} />
+        renderItem={({ item, index }) => (
+          <Row 
+            task={item} 
+            onToggle={toggleTask} 
+            style={{
+              backgroundColor: index % 2 === 0 ? '#e3f2fd' : '#faf8f8ff'
+            }}              
+          />
         )}
         contentContainerStyle={styles.listContent}
       />
@@ -86,7 +52,7 @@ const HomeScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ecebebff',
   },
   inputRow: {
     flexDirection: 'row',
@@ -94,13 +60,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
   },
-  input: {
+  inputWrapper: {
     flex: 1,
-    fontSize: 16,
+    backgroundColor: '#faf8f8ff',
+    borderRadius: 8,
+    paddingHorizontal: 12,
     paddingVertical: 4,
     marginRight: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+  },
+  input: {
+    fontSize: 16,
+    paddingVertical: 4,
+  },
+  button: {
+    backgroundColor: '#3da367ff',
+    borderRadius: 8,
+  },
+  buttonLabel: {
+    color: '#fff'
   },
   listContent: {
     paddingHorizontal: 16,

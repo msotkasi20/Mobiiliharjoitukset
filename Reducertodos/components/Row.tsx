@@ -1,16 +1,17 @@
 import React from 'react'
-import { StyleSheet, Text, View, Pressable } from 'react-native'
+import { StyleSheet, Text, View, Pressable, StyleProp, ViewStyle } from 'react-native'
 import type { Task } from '../types/Types'
 
 type RowProps = {
     task: Task
     onToggle: (id: string) => void
+    style?: StyleProp<ViewStyle>
 }
 
-const Row: React.FC<RowProps> = ({ task, onToggle }) => {
+const Row: React.FC<RowProps> = ({ task, onToggle, style }) => {
     return (
         <Pressable onPress={() => onToggle(task.id)}>
-            <View style={styles.row}>
+            <View style={[styles.row, style]}>
                 <Text style={[styles.text, task.done && styles.textDone]} >
                     {task.name}
                 </Text>
@@ -21,8 +22,9 @@ const Row: React.FC<RowProps> = ({ task, onToggle }) => {
 
 const styles = StyleSheet.create({
     row: {
-        paddingVertical: 8,
+        paddingVertical: 10,
         paddingHorizontal: 16,
+        marginVertical: 4,
     },
     text: {
         fontSize: 16,

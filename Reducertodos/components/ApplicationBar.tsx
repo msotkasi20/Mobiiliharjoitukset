@@ -6,11 +6,11 @@ const MainAppbar = () => {
         <Appbar.Header 
             mode='center-aligned'
             elevated={true}
-            style={{ backgroundColor:' #fff'}}
+            style={{ backgroundColor: '#0a68b4ff'}}
         >
             <Appbar.Content 
-                title="Todo List" 
-                titleStyle={{ color: '#333', fontWeight: 'bold'}}
+                title="Simple Todo" 
+                titleStyle={{ fontWeight: 'bold', color: '#fff'}}
                 />
         </Appbar.Header>
     )
