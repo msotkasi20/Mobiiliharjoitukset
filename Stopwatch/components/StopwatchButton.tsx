@@ -1,5 +1,5 @@
-// Nappien näyttämiseen
-import { View, Text, Button } from 'react-native'
+// Yleiskomponentti nappien näyttämiseen
+import { View, Button } from 'react-native'
 import React from 'react'
 
 type StopwatchButtonProps = {

@@ -4,6 +4,8 @@ import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import { useStopwatch } from './hooks/useStopwatch'
 import StopwatchButton from './components/StopwatchButton'
+import TimeDisplay from './components/TimeDisplay'
+import TimeStatus from './components/TimeStatus'
 
 export default function App() {
 
@@ -12,13 +14,13 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Stopwatch</Text>
-      <Text style={styles.time}>{state.time}</Text>
+      <TimeDisplay time={state.time} />
       <View style= {styles.buttons}>
         <StopwatchButton title="Start" onPress={handleStart} disabled={state.isRunning} />
         <StopwatchButton title="Stop" onPress={handleStop} disabled={!state.isRunning} />
         <StopwatchButton title="Reset" onPress={handleReset} />
       </View>
-      <Text style={styles.status}>{state.isRunning ? 'Running' : 'Stopped'}</Text>
+      <TimeStatus isRunning={state.isRunning}/>
       <StatusBar style="auto" />
     </View>
   )
@@ -34,14 +36,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     marginBottom: 24
-  },
-  time: {
-    fontSize: 24,
-    marginBottom: 24,
-  },
-  status: {
-    fontSize: 24,
-    marginTop: 24,
   },
   buttons: {
     flexDirection: 'row',
