@@ -9,7 +9,7 @@ import TimeStatus from './components/TimeStatus'
 
 export default function App() {
 
-  const { state, handleStart, handleStop, handleReset } =useStopwatch() //tuodaan custom-hookista tarvittava
+  const { state, handleStart, handleStop, handleReset } =useStopwatch() //tuodaan custom-hookista tarvittavat tilat ja funktiot
 
   return (
     <View style={styles.container}>
