@@ -5,7 +5,7 @@ type TimeStatusProps = {
   isRunning: boolean
 }
 
-export default function TimeStatus({ isRunning }: TimeStatusProps) {
+const TimeStatus =({ isRunning }: TimeStatusProps) => {
     return (
         <Text style={styles.status}>{isRunning ? 'Running' : 'Stopped'}</Text>
     )
@@ -17,3 +17,5 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
 })
+
+export default TimeStatus

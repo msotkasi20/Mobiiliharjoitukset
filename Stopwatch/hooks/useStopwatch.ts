@@ -38,31 +38,35 @@ const stopwatchReducer = (state: StopwatchState, action: StopwatchAction):  //re
     const [state, dispatch] = useReducer(stopwatchReducer, initialState)
     const timerRef = useRef<NodeJS.Timeout | null>(null)
 
-      const handleStart = () => {
+    const handleStart = () => {
+      if (!state.isRunning) {
         dispatch({ type: 'START' })
         timerRef.current = setInterval(() => {
           dispatch({ type: 'TICK'})
         }, 1000)
-      }
-    
-      const handleStop = () => {
-        if (timerRef.current) {
-          dispatch({ type: 'STOP' })
-          clearInterval(timerRef.current)
-        }
-      }
-    
-      const handleReset = () => {
-        if (timerRef.current) {
-          dispatch({ type: 'RESET' })
-          clearInterval(timerRef.current)
-        }
-      }
-
-      return {
-        state,
-        handleStart,
-        handleStop,
-        handleReset
       } 
+    }
+    
+    const handleStop = () => {
+      if (timerRef.current && state.isRunning) {
+        dispatch({ type: 'STOP' })
+        clearInterval(timerRef.current)
+        timerRef.current = null
+      }
+    }
+    
+    const handleReset = () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current)
+        timerRef.current = null
+      }
+      dispatch({ type: 'RESET' })
+    }
+
+    return {
+      state,
+      handleStart,
+      handleStop,
+      handleReset
+    } 
   }
