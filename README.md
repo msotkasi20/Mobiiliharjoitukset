@@ -6,7 +6,8 @@ Tässä repositoriossa on kurssin aikana olleet palautettavat viikkotehtävät, 
 1. Tavoitesyke  
 2. Modal
 3. Mdnavigation
-4. Todo  
+4. Todo
+5. Reducertodos  
 
 
 ## Harjoitustehtävät
@@ -27,4 +28,5 @@ Stopwatch
 Styles  
 Switch    
 Theming  
-Valuuttalaskuri  
+Valuuttalaskuri   
+Zustand
