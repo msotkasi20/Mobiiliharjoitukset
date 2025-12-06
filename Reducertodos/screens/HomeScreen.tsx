@@ -1,6 +1,6 @@
 import { View, StyleSheet, FlatList, TextInput } from 'react-native'
 import { Button } from 'react-native-paper'
-import React, { useState } from 'react'
+import React from 'react'
 import MainAppbar from '../components/ApplicationBar'
 import Row from '../components/Row'
 import { useTasks } from '../hooks/useTasks'

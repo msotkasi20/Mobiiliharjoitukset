@@ -1,4 +1,4 @@
-import { useReducer, useState} from 'react'
+import { useReducer, useState } from 'react'
 import { Task } from '../types/Types'
 
 type TaskState = Task[]
