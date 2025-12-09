@@ -7,16 +7,18 @@ Tässä repositoriossa on kurssin aikana olleet palautettavat viikkotehtävät, 
 2. Modal
 3. Mdnavigation
 4. Todo
-5. Reducertodos  
-
+5. Reducertodos
+6. Barcodereader  
 
 ## Harjoitustehtävät
+Accelerometer  
 Activityindicator  
 Alert  
 Datetimepicker  
 Flatlist  
 Fontti  
-Loginwithmaterialdesign    
+Loginwithmaterialdesign  
+MapView
 Navigointi  
 Picker  
 Profile (2 pages, Home and Profile)  
