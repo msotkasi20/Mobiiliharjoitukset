@@ -31,4 +31,5 @@ Styles
 Switch    
 Theming  
 Valuuttalaskuri   
-Zustand
+Zustand  
+Tavoitesyke
