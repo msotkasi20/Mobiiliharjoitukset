@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useCameraPermissions, BarcodeScanningResult } from 'expo-camera'
