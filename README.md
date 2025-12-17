@@ -14,6 +14,7 @@ Tässä repositoriossa on kurssin aikana olleet palautettavat viikkotehtävät, 
 Accelerometer  
 Activityindicator  
 Alert  
+Cocktails  
 Datetimepicker  
 Flatlist  
 Fontti  
@@ -28,8 +29,8 @@ SQLite
 StatusBar  
 Stopwatch  
 Styles  
-Switch    
+Switch  
+Tavoitesyke  
 Theming  
 Valuuttalaskuri   
 Zustand  
-Tavoitesyke
