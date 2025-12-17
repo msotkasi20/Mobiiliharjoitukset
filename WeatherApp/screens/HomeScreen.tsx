@@ -6,7 +6,7 @@ import { useFetch } from '@local/use-fetch'
 import WeatherCard from '../components/WeatherCard'
 import { useCurrentLocation } from '../hooks/useCurrentLocation'
 
-const OPENWEATHER_API_KEY='15702053fc72839cd51533b8387a5c47' // Tähän oma API-key!! Ei gittiin!!!
+const OPENWEATHER_API_KEY='OMA_AVAIN' // Tähän oma API-key!! Ei gittiin!!!
 
 type WeatherResponse = {
   name: string
