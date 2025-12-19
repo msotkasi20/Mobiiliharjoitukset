@@ -8,7 +8,8 @@ Tässä repositoriossa on kurssin aikana olleet palautettavat viikkotehtävät, 
 3. Mdnavigation
 4. Todo
 5. Reducertodos
-6. Barcodereader  
+6. Barcodereader
+7. WeatherApp (datan näyttäminen mobiilisovelluksessa) 
 
 ## Harjoitustehtävät
 Accelerometer  
