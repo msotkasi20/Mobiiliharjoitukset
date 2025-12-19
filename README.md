@@ -17,6 +17,7 @@ Activityindicator
 Alert  
 Cocktails  
 Datetimepicker  
+FirebaseApp  
 Flatlist  
 Fontti  
 Loginwithmaterialdesign  
