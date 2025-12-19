@@ -85,7 +85,6 @@ export default function HomeScreen() {
             />
           )}
 
-          {/* Ei dataa, mutta ei virhettäkään */}
           {!weatherLoading && !weatherError && !data && (
             <View style={styles.center}>
               <Text>Ei säätietoja saatavilla.</Text>
