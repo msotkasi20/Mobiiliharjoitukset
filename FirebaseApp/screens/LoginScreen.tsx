@@ -18,10 +18,13 @@ export default function LoginScreen({ setLoggedIn }: LoginProps): React.ReactEle
 
     try {
       const auth = getAuth()
-      await signInWithEmailAndPassword(
-        auth, email.trim(), password
+      const userCredential = await signInWithEmailAndPassword(
+        auth, email.trim(), password.trim()
       )
-      setLoggedIn?.(true)
+      const user = userCredential.user
+      if (setLoggedIn) {
+        setLoggedIn(true)
+      }
     } catch (err) {
       console.log('Login failed. Please try again', err)
     }
@@ -75,8 +78,5 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 12,
     marginBottom: 22,
-  },
-  button: {
-    
   },
 })
