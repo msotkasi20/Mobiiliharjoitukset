@@ -9,7 +9,8 @@ Tässä repositoriossa on kurssin aikana olleet palautettavat viikkotehtävät, 
 4. Todo
 5. Reducertodos
 6. Barcodereader
-7. WeatherApp (datan näyttäminen mobiilisovelluksessa) 
+7. WeatherApp (datan näyttäminen mobiilisovelluksessa)
+8. JoulupukinKontti (Firebasessa db ja auth, datan haku, lisäys ja poisto)
 
 ## Harjoitustehtävät
 Accelerometer  
